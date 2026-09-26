@@ -19,17 +19,18 @@ export type RoomImages = {
   detail: [SiteImage, ...SiteImage[]];
 };
 
+// Paths without an extension default to .jpg.
 const photo = (path: string, alt: string, position?: string): SiteImage => ({
-  src: `/images/apex-inn/${path}.jpg`,
+  src: `/images/apex-inn/${/\.\w+$/.test(path) ? path : `${path}.jpg`}`,
   alt,
   position,
 });
 
 export const siteImages = {
   homeHero: photo(
-    "exterior/day-pine-forest-01",
-    "Apex Inn guest house surrounded by pine forest and gardens in Neelum Valley",
-    "object-[center_45%]",
+    "exterior/day-front-lawn.jpeg",
+    "Apex Inn guest house above its stone-walled lawn with pine forest and Neelum Valley mountains behind",
+    "object-[center_30%]",
   ),
   homeAbout: photo(
     "entrance/carved-entrance-night",

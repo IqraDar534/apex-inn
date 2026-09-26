@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -120,8 +121,7 @@ export default function TermsPage() {
               Contact
             </h2>
             <p className="mt-5 text-base leading-8 text-muted">
-              For questions about these placeholder website terms, use the current placeholder
-              contact details:
+              For questions about these website terms, contact Apex Inn:
             </p>
             <address className="mt-5 space-y-2 not-italic text-sm text-foreground">
               <p>
@@ -133,7 +133,21 @@ export default function TermsPage() {
                   info@apexinn.com
                 </a>
               </p>
-              <p>Phone: +92 XXX XXXXXXX</p>
+              <p>
+                Call:{" "}
+                <a className="text-primary underline decoration-border underline-offset-4" href={call.href}>
+                  {call.display}
+                </a>
+              </p>
+              <p>
+                WhatsApp:{" "}
+                <a
+                  className="text-primary underline decoration-border underline-offset-4"
+                  {...whatsappLinkProps}
+                >
+                  {whatsapp.display}
+                </a>
+              </p>
             </address>
             <Link
               className="button-secondary mt-7"

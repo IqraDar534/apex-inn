@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import "./globals.css";
+import { siteImages } from "../lib/siteImages";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,10 +35,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero/hero.jpg",
-        width: 1600,
-        height: 1100,
-        alt: "Warm exterior of the Apex Inn guest house",
+        url: siteImages.socialShare.src,
+        width: 1280,
+        height: 960,
+        alt: siteImages.socialShare.alt,
       },
     ],
   },
@@ -52,6 +53,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
+      data-scroll-behavior="smooth"
       lang="en"
       className={`${geistSans.variable} h-full antialiased`}
     >

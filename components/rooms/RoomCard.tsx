@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { SiteImage } from "../../lib/siteImages";
 import type { Room } from "./roomData";
 
 type RoomCardProps = {
   room: Room;
+  image: SiteImage;
+  /** Load immediately; use for a card that is visible on first paint. */
+  eager?: boolean;
 };
 
-export default function RoomCard({ room }: RoomCardProps) {
+export default function RoomCard({ room, image, eager = false }: RoomCardProps) {
   const roomPath = `/rooms/${room.slug}`;
 
   return (
@@ -14,11 +18,12 @@ export default function RoomCard({ room }: RoomCardProps) {
       <Link className="group block" href={roomPath}>
         <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
           <Image
-            alt={`${room.name} at Apex Inn`}
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+            alt={image.alt}
+            className={`object-cover transition-transform duration-300 group-hover:scale-[1.02] ${image.position ?? ""}`}
             fill
+            loading={eager ? "eager" : "lazy"}
             sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
-            src={room.imageSrc}
+            src={image.src}
           />
         </div>
       </Link>

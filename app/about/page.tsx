@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { siteImages } from "../../lib/siteImages";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -52,12 +53,12 @@ export default function AboutPage() {
       >
         <div className="relative min-h-[24rem] overflow-hidden rounded-sm bg-secondary sm:min-h-[32rem]">
           <Image
-            alt="Welcoming guest house setting at Apex Inn"
-            className="object-cover"
+            alt={siteImages.aboutPage.alt}
+            className={`object-cover ${siteImages.aboutPage.position ?? ""}`}
             fill
             loading="eager"
             sizes="(max-width: 1023px) 100vw, 50vw"
-            src="/images/about/about.jpg"
+            src={siteImages.aboutPage.src}
           />
         </div>
 

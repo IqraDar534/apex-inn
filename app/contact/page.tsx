@@ -2,11 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
-const primaryPhone = "03109176557";
-const alternativePhone = "03558071121";
-const primaryPhoneHref = `tel:${primaryPhone}`;
-const alternativePhoneHref = `tel:${alternativePhone}`;
+import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -44,25 +40,25 @@ export default function ContactPage() {
           </p>
           <a
             className="mt-7 block break-words text-4xl font-bold tracking-[0.03em] text-primary-foreground sm:text-5xl"
-            href={primaryPhoneHref}
+            href={call.href}
           >
-            {primaryPhone}
+            {call.display}
           </a>
           <a
             className="button-on-primary mt-7"
-            href={primaryPhoneHref}
+            href={call.href}
           >
             Call Now
           </a>
           <div className="mx-auto mt-8 max-w-xs border-t border-primary-foreground/20 pt-5">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-secondary">
-              Alternative Contact
+              WhatsApp
             </p>
             <a
               className="mt-2 inline-flex min-h-11 items-center text-lg font-semibold text-primary-foreground transition-colors hover:text-secondary"
-              href={alternativePhoneHref}
+              {...whatsappLinkProps}
             >
-              {alternativePhone}
+              {whatsapp.display}
             </a>
           </div>
         </div>
@@ -76,11 +72,11 @@ export default function ContactPage() {
           </article>
           <article className="rounded-sm border border-primary bg-secondary p-6 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Phone</p>
-            <a className="mt-3 block text-lg font-bold text-primary" href={primaryPhoneHref}>
-              {primaryPhone}
+            <a className="mt-3 block text-lg font-bold text-primary" href={call.href}>
+              Call: {call.display}
             </a>
-            <a className="mt-1 inline-flex min-h-11 items-center text-sm font-medium text-primary transition-colors hover:text-foreground" href={alternativePhoneHref}>
-              {alternativePhone}
+            <a className="mt-1 inline-flex min-h-11 items-center text-sm font-medium text-primary transition-colors hover:text-foreground" {...whatsappLinkProps}>
+              WhatsApp: {whatsapp.display}
             </a>
           </article>
           <article className="rounded-sm border border-border bg-card p-6 text-center transition-colors hover:border-primary">
@@ -184,15 +180,21 @@ export default function ContactPage() {
           <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-muted">
             Call Apex INN directly and our team can assist you with availability and booking information.
           </p>
-          <a className="mt-6 inline-block break-words text-3xl font-bold text-primary sm:text-4xl" href={primaryPhoneHref}>
-            {primaryPhone}
+          <a className="mt-6 inline-block break-words text-3xl font-bold text-primary sm:text-4xl" href={call.href}>
+            {call.display}
           </a>
-          <div>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <a
-              className="button-primary mt-6"
-              href={primaryPhoneHref}
+              className="button-primary"
+              href={call.href}
             >
               Call Apex INN
+            </a>
+            <a
+              className="button-secondary"
+              {...whatsappLinkProps}
+            >
+              WhatsApp {whatsapp.display}
             </a>
           </div>
         </div>

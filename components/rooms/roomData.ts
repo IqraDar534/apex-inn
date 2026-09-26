@@ -1,3 +1,5 @@
+import { siteImages, type RoomImages } from "../../lib/siteImages";
+
 export type Room = {
   name: string;
   slug: string;
@@ -5,7 +7,7 @@ export type Room = {
   guests: string;
   bed: string;
   price: string;
-  imageSrc: string;
+  images: RoomImages;
 };
 
 export const featuredRooms: Room[] = [
@@ -16,7 +18,7 @@ export const featuredRooms: Room[] = [
     guests: "2 Guests",
     bed: "1 King Bed",
     price: "From PKR 8,000 / night",
-    imageSrc: "/images/rooms/deluxe-room.jpg",
+    images: siteImages.rooms["deluxe-room"],
   },
   {
     name: "Executive Room",
@@ -25,7 +27,7 @@ export const featuredRooms: Room[] = [
     guests: "2 Guests",
     bed: "1 King Bed",
     price: "From PKR 10,000 / night",
-    imageSrc: "/images/rooms/executive-room.jpg",
+    images: siteImages.rooms["executive-room"],
   },
   {
     name: "Family Room",
@@ -34,6 +36,6 @@ export const featuredRooms: Room[] = [
     guests: "4 Guests",
     bed: "2 Beds",
     price: "From PKR 13,000 / night",
-    imageSrc: "/images/rooms/family-room.jpg",
+    images: siteImages.rooms["family-room"],
   },
 ];

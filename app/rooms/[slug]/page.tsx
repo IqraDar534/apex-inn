@@ -21,6 +21,8 @@ export default async function RoomDetailsPage({
     notFound();
   }
 
+  const [mainImage, ...supportingImages] = room.images.detail;
+
   return (
     <main>
       <section className="bg-secondary">
@@ -37,15 +39,33 @@ export default async function RoomDetailsPage({
       </section>
 
       <section className="container-page grid gap-12 py-20 md:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-20">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-secondary">
-          <Image
-            alt={`${room.name} at Apex Inn`}
-            className="object-cover"
-            fill
-            loading="eager"
-            sizes="(max-width: 1023px) 100vw, 60vw"
-            src={room.imageSrc}
-          />
+        <div className="min-w-0">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-secondary">
+            <Image
+              alt={mainImage.alt}
+              className={`object-cover ${mainImage.position ?? ""}`}
+              fill
+              loading="eager"
+              sizes="(max-width: 1023px) 100vw, 60vw"
+              src={mainImage.src}
+            />
+          </div>
+
+          {supportingImages.length > 0 && (
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              {supportingImages.map((image) => (
+                <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-secondary" key={image.src}>
+                  <Image
+                    alt={image.alt}
+                    className={`object-cover ${image.position ?? ""}`}
+                    fill
+                    sizes="(max-width: 1023px) 50vw, 30vw"
+                    src={image.src}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div>

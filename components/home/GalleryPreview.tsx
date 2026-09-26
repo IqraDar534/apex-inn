@@ -1,38 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteImages } from "../../lib/siteImages";
 
-const galleryItems = [
-  {
-    alt: "Exterior view of Apex Inn",
-    position: "object-center",
-    src: "/images/gallery/gallery-01.jpg",
-  },
-  {
-    alt: "Welcoming entrance at Apex Inn",
-    position: "object-[35%_center]",
-    src: "/images/gallery/gallery-02.jpg",
-  },
-  {
-    alt: "Warm architectural details at Apex Inn",
-    position: "object-[65%_center]",
-    src: "/images/gallery/gallery-03.jpg",
-  },
-  {
-    alt: "Relaxing guest house surroundings at Apex Inn",
-    position: "object-[25%_70%]",
-    src: "/images/gallery/gallery-04.jpg",
-  },
-  {
-    alt: "Comfortable shared space at Apex Inn",
-    position: "object-[75%_70%]",
-    src: "/images/gallery/gallery-05.jpg",
-  },
-  {
-    alt: "Apex Inn viewed across its landscaped setting",
-    position: "object-[50%_30%]",
-    src: "/images/gallery/gallery-06.jpg",
-  },
-];
+const galleryItems = siteImages.homeGallery;
 
 function GalleryImage({
   alt,
@@ -42,14 +12,14 @@ function GalleryImage({
 }: {
   alt: string;
   className: string;
-  position: string;
+  position?: string;
   src: string;
 }) {
   return (
     <figure className={`group relative overflow-hidden rounded-sm bg-secondary ${className}`}>
       <Image
         alt={alt}
-        className={`object-cover transition-transform duration-500 group-hover:scale-105 ${position}`}
+        className={`object-cover transition-transform duration-500 group-hover:scale-105 ${position ?? ""}`}
         fill
         sizes="(max-width: 1023px) 100vw, 50vw"
         src={src}
@@ -85,7 +55,7 @@ export default function GalleryPreview() {
               <GalleryImage
                 alt={item.alt}
                 className="min-h-[13rem] sm:min-h-0 sm:aspect-[4/3]"
-                key={item.alt}
+                key={item.src}
                 position={item.position}
                 src={item.src}
               />

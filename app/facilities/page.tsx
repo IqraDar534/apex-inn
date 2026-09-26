@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { siteImages } from "../../lib/siteImages";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -84,11 +85,11 @@ export default function FacilitiesPage() {
         <div className="container-page grid gap-12 py-20 md:py-28 lg:grid-cols-2 lg:items-center lg:gap-20">
           <div className="relative min-h-[24rem] overflow-hidden rounded-sm bg-secondary sm:min-h-[32rem]">
             <Image
-              alt="Comfortable guest house setting at Apex Inn"
-              className="object-cover"
+              alt={siteImages.facilitiesPage.alt}
+              className={`object-cover ${siteImages.facilitiesPage.position ?? ""}`}
               fill
               sizes="(max-width: 1023px) 100vw, 50vw"
-              src="/images/facilities/facilities.jpg"
+              src={siteImages.facilitiesPage.src}
             />
           </div>
 

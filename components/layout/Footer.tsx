@@ -1,17 +1,19 @@
 import Link from "next/link";
+import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
 
 const exploreLinks = [
-  { label: "Home", href: "/" },
-  { label: "Rooms", href: "/rooms" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "About", href: "/about" },
-  { label: "Facilities", href: "/facilities" },
+  { id: "home", label: "Home", href: "/" },
+  { id: "rooms", label: "Rooms", href: "/rooms" },
+  { id: "gallery", label: "Gallery", href: "/gallery" },
+  { id: "about", label: "About", href: "/about" },
+  { id: "facilities", label: "Facilities", href: "/facilities" },
 ];
 
+// Booking and Contact intentionally share a route, so keys use `id`, not `href`.
 const serviceLinks = [
-  { label: "Booking", href: "/contact" },
-  { label: "Contact", href: "/contact" },
-  { label: "FAQ", href: "/faq" },
+  { id: "booking", label: "Booking", href: "/contact" },
+  { id: "contact", label: "Contact", href: "/contact" },
+  { id: "faq", label: "FAQ", href: "/faq" },
 ];
 
 const linkClassName =
@@ -37,7 +39,7 @@ export default function Footer() {
             </h2>
             <div className="mt-3 flex flex-col items-start gap-1">
             {exploreLinks.map((link) => (
-              <Link className={linkClassName} href={link.href} key={link.href}>
+              <Link className={linkClassName} href={link.href} key={link.id}>
                 {link.label}
               </Link>
             ))}
@@ -50,7 +52,7 @@ export default function Footer() {
             </h2>
             <div className="mt-3 flex flex-col items-start gap-1">
             {serviceLinks.map((link) => (
-              <Link className={linkClassName} href={link.href} key={link.href}>
+              <Link className={linkClassName} href={link.href} key={link.id}>
                 {link.label}
               </Link>
             ))}
@@ -64,12 +66,18 @@ export default function Footer() {
             <div className="mt-3 flex flex-col gap-3 text-sm">
               <div>
                 <p className="text-xs uppercase tracking-[0.12em] text-muted">Location</p>
-                <p className="mt-1 text-muted">Your Location, Pakistan</p>
+                <p className="mt-1 text-muted">Neelum Valley, Azad Kashmir</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.12em] text-muted">Phone</p>
-                <a className={linkClassName} href="tel:+92XXXXXXXXX">
-                  +92 XXX XXXXXXX
+                <p className="text-xs uppercase tracking-[0.12em] text-muted">Call</p>
+                <a className={linkClassName} href={call.href}>
+                  {call.display}
+                </a>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.12em] text-muted">WhatsApp</p>
+                <a className={linkClassName} {...whatsappLinkProps}>
+                  {whatsapp.display}
                 </a>
               </div>
               <div>

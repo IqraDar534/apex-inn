@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
 
 const roomOptions = ["Deluxe Room", "Executive Room", "Family Room"];
-const bookingPhone = "+92 XXX XXXXXXX";
 
 export default function BookingPage() {
   const [checkIn, setCheckIn] = useState("");
@@ -50,16 +50,24 @@ export default function BookingPage() {
             <p className="mt-3 max-w-2xl text-sm leading-7 text-primary-foreground/80">
               Speak directly with Apex Inn to check availability and confirm your reservation.
             </p>
-            <p className="mt-3 text-xs text-primary-foreground/60">
-              Placeholder number: {bookingPhone}. Update it before launch.
+            <p className="mt-3 text-sm font-semibold text-primary-foreground">
+              Call: {call.display} · WhatsApp: {whatsapp.display}
             </p>
           </div>
-          <a
-            className="button-on-primary shrink-0"
-            href="tel:+92XXXXXXXXX"
-          >
-            Call Now
-          </a>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <a
+              className="button-on-primary"
+              href={call.href}
+            >
+              Call Now
+            </a>
+            <a
+              className="button-on-primary"
+              {...whatsappLinkProps}
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 

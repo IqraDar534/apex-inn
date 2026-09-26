@@ -27,8 +27,8 @@ export default function RoomsPage() {
           Available rooms
         </h2>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {featuredRooms.map((room) => (
-            <RoomCard key={room.slug} room={room} />
+          {featuredRooms.map((room, index) => (
+            <RoomCard eager={index === 0} image={room.images.card} key={room.slug} room={room} />
           ))}
         </div>
       </section>

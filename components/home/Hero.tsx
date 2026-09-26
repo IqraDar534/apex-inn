@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { siteImages } from "../../lib/siteImages";
 import Link from "next/link";
 
 export default function Hero() {
@@ -36,13 +37,13 @@ export default function Hero() {
 
         <div className="relative min-h-[22rem] flex-1 overflow-hidden rounded-sm bg-secondary sm:min-h-[28rem] lg:min-h-[36rem]">
           <Image
-            alt="Warm exterior of the Apex Inn guest house"
-            className="object-cover"
+            alt={siteImages.homeHero.alt}
+            className={`object-cover ${siteImages.homeHero.position ?? ""}`}
             fill
+            fetchPriority="high"
             loading="eager"
-            priority
             sizes="(max-width: 1023px) 100vw, 50vw"
-            src="/images/hero/hero.jpg"
+            src={siteImages.homeHero.src}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
         </div>

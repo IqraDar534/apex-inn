@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { siteImages } from "../../lib/siteImages";
 import Link from "next/link";
 
 const highlights = [
@@ -15,12 +16,11 @@ export default function AboutPreview() {
     >
       <div className="relative min-h-[24rem] overflow-hidden rounded-sm bg-secondary sm:min-h-[32rem]">
         <Image
-          alt="Welcoming exterior of the Apex Inn guest house"
-          className="object-cover"
+          alt={siteImages.homeAbout.alt}
+          className={`object-cover ${siteImages.homeAbout.position ?? ""}`}
           fill
-          loading="eager"
           sizes="(max-width: 1023px) 100vw, 50vw"
-          src="/images/about/about.jpg"
+          src={siteImages.homeAbout.src}
         />
       </div>
 

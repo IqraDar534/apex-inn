@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -99,7 +100,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p className="mt-5 text-base leading-8 text-muted">
               You can choose whether to enter information into the website forms. You can also
-              contact Apex Inn using the placeholder details below if you have questions about how
+              contact Apex Inn using the details below if you have questions about how
               the website handles information.
             </p>
           </section>
@@ -119,7 +120,7 @@ export default function PrivacyPolicyPage() {
               Contact Information
             </h2>
             <p className="mt-5 text-base leading-8 text-muted">
-              For privacy questions, use the current placeholder contact details:
+              For privacy questions, contact Apex Inn:
             </p>
             <address className="mt-5 space-y-2 not-italic text-sm text-foreground">
               <p>
@@ -128,7 +129,21 @@ export default function PrivacyPolicyPage() {
                   info@apexinn.com
                 </a>
               </p>
-              <p>Phone: +92 XXX XXXXXXX</p>
+              <p>
+                Call:{" "}
+                <a className="text-primary underline decoration-border underline-offset-4" href={call.href}>
+                  {call.display}
+                </a>
+              </p>
+              <p>
+                WhatsApp:{" "}
+                <a
+                  className="text-primary underline decoration-border underline-offset-4"
+                  {...whatsappLinkProps}
+                >
+                  {whatsapp.display}
+                </a>
+              </p>
             </address>
             <Link
               className="button-secondary mt-7"

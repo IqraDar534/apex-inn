@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { siteImages } from "../../lib/siteImages";
 import Link from "next/link";
 
 const reasons = [
@@ -28,11 +29,11 @@ export default function WhyChooseUs() {
     >
       <div className="relative min-h-[22rem] overflow-hidden rounded-sm bg-secondary sm:min-h-[30rem] lg:min-h-[36rem]">
         <Image
-          alt="Welcoming guest house setting at Apex Inn"
-          className="object-cover"
+          alt={siteImages.homeWhyChooseUs.alt}
+          className={`object-cover ${siteImages.homeWhyChooseUs.position ?? ""}`}
           fill
           sizes="(max-width: 1023px) 100vw, 50vw"
-          src="/images/facilities/facilities.jpg"
+          src={siteImages.homeWhyChooseUs.src}
         />
       </div>
 

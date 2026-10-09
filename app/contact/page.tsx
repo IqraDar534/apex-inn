@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
+import { call, location, whatsapp, whatsappLinkProps } from "../../lib/contact";
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -17,11 +17,11 @@ export default function ContactPage() {
       <section className="bg-secondary">
         <div className="container-page py-20 text-center md:py-28">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            CONTACT APEX INN
+            CONTACT &amp; LOCATION
           </p>
-          <h1 className="mx-auto mt-5 max-w-4xl">We&apos;re Here to Make Your Stay Comfortable</h1>
+          <h1 className="mx-auto mt-5 max-w-4xl">Contact Apex Inn in Neelum Valley</h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted">
-            Planning a stay in Neelum Valley? Contact Apex INN directly for booking information,
+            Planning a stay in Neelum Valley? Contact Apex Inn directly for booking information,
             availability, and any questions about your visit.
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function ContactPage() {
             Call Us for Booking &amp; Availability
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-primary-foreground/80">
-            For quick assistance, call Apex INN directly.
+            For quick assistance, call Apex Inn directly.
           </p>
           <a
             className="mt-7 block break-words text-4xl font-bold tracking-[0.03em] text-primary-foreground sm:text-5xl"
@@ -178,7 +178,7 @@ export default function ContactPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">QUICK ASSISTANCE</p>
           <h2 className="mt-4">Need Help With Your Booking?</h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-muted">
-            Call Apex INN directly and our team can assist you with availability and booking information.
+            Call Apex Inn directly and our team can assist you with availability and booking information.
           </p>
           <a className="mt-6 inline-block break-words text-3xl font-bold text-primary sm:text-4xl" href={call.href}>
             {call.display}
@@ -188,7 +188,7 @@ export default function ContactPage() {
               className="button-primary"
               href={call.href}
             >
-              Call Apex INN
+              Call Apex Inn
             </a>
             <a
               className="button-secondary"
@@ -202,13 +202,23 @@ export default function ContactPage() {
 
       <section className="container-page py-20 text-center md:py-28">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">OUR LOCATION</p>
-        <h2 className="mt-4">Stay in Neelum Valley</h2>
+        <h2 className="mt-4">Our Guest House Location in Neelum Valley</h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted">
-          Apex INN is located in the beautiful Neelum Valley, offering guests a convenient place to stay while exploring the area.
+          Apex Inn is located in the beautiful Neelum Valley, offering guests a convenient place to stay while exploring the area.
         </p>
         <div className="mx-auto mt-10 max-w-xl rounded-sm border border-border bg-secondary px-6 py-10">
-          <p className="text-2xl font-semibold text-foreground">Apex INN</p>
-          <p className="mt-2 text-lg text-primary">Neelum Valley</p>
+          <p className="text-2xl font-semibold text-foreground">Apex Inn</p>
+          <p className="mt-2 text-lg text-primary">
+            {location.locality}, {location.region}
+          </p>
+          <a
+            className="button-secondary mt-6"
+            href={location.mapLink}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Get Directions on Google Maps
+          </a>
         </div>
       </section>
 
@@ -223,11 +233,17 @@ export default function ContactPage() {
               Explore Rooms
             </Link>
             <Link
-              className="button-primary"
-              href="/contact"
+              className="button-secondary"
+              href="/faq"
             >
-              Book Your Stay
+              Read Guest FAQs
             </Link>
+            <a
+              className="button-primary"
+              href={call.href}
+            >
+              Call to Book Your Stay
+            </a>
           </div>
         </div>
       </section>

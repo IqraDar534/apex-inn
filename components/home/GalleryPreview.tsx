@@ -74,7 +74,7 @@ export default function GalleryPreview() {
             className="inline-flex min-h-11 items-center justify-center px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:text-foreground"
             href="/gallery"
           >
-            View Full Gallery <span aria-hidden="true" className="ml-2">→</span>
+            View the Full Apex Inn Photo Gallery <span aria-hidden="true" className="ml-2">→</span>
           </Link>
         </div>
       </div>

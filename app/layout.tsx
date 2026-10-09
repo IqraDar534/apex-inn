@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import "./globals.css";
+import { siteName, siteUrl } from "../lib/seo";
 import { siteImages } from "../lib/siteImages";
 
 const geistSans = Geist({
@@ -10,43 +11,34 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const defaultTitle = "Apex Inn Neelum Valley | Guest House in Neelum Valley";
+const defaultDescription =
+  "Apex Inn is a comfortable guest house in Neelum Valley, Azad Kashmir, with clean rooms, warm hospitality, free Wi-Fi and parking.";
+const defaultImages = [{ url: siteImages.socialShare.src, alt: siteImages.socialShare.alt }];
+
+// Fallbacks for any route without its own metadata; each page sets its own title, description,
+// canonical URL and social tags via pageMetadata() in lib/seo.ts.
 export const metadata: Metadata = {
-  // Replace this placeholder with the real production domain before deployment.
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Apex Inn | Comfortable Stay Away From Home",
+    default: defaultTitle,
     template: "%s | Apex Inn",
   },
-  description:
-    "Apex Inn offers comfortable accommodation, welcoming hospitality, thoughtfully prepared rooms, and a relaxing guest stay.",
-  keywords: [
-    "Apex Inn",
-    "comfortable accommodation",
-    "guest house",
-    "welcoming hospitality",
-    "rooms",
-    "guest stay",
-  ],
+  description: defaultDescription,
+  applicationName: siteName,
   openGraph: {
-    title: "Apex Inn | Comfortable Stay Away From Home",
-    description:
-      "Apex Inn offers comfortable accommodation, welcoming hospitality, thoughtfully prepared rooms, and a relaxing guest stay.",
-    siteName: "Apex Inn",
+    title: defaultTitle,
+    description: defaultDescription,
+    siteName,
+    locale: "en_PK",
     type: "website",
-    images: [
-      {
-        url: siteImages.socialShare.src,
-        width: 1280,
-        height: 960,
-        alt: siteImages.socialShare.alt,
-      },
-    ],
+    images: defaultImages,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Apex Inn | Comfortable Stay Away From Home",
-    description:
-      "Apex Inn offers comfortable accommodation, welcoming hospitality, thoughtfully prepared rooms, and a relaxing guest stay.",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: defaultImages,
   },
 };
 

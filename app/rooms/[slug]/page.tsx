@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { featuredRooms } from "../../../components/rooms/roomData";
+import { jsonLdScript, pageMetadata } from "../../../lib/seo";
+import { breadcrumbJsonLd } from "../../../lib/structuredData";
 
 const amenities = ["Free Wi-Fi", "Air Conditioning", "Housekeeping", "Room Service"];
 
@@ -9,11 +11,23 @@ export function generateStaticParams() {
   return featuredRooms.map((room) => ({ slug: room.slug }));
 }
 
-export default async function RoomDetailsPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: PageProps<"/rooms/[slug]">) {
+  const { slug } = await params;
+  const room = featuredRooms.find((item) => item.slug === slug);
+
+  if (!room) {
+    return {};
+  }
+
+  return pageMetadata({
+    title: `${room.name} in Neelum Valley | Apex Inn`,
+    description: `${room.description} Sleeps ${room.guests.toLowerCase()} with ${room.bed.toLowerCase()} at Apex Inn guest house, Neelum Valley.`,
+    path: `/rooms/${room.slug}`,
+    image: room.images.card,
+  });
+}
+
+export default async function RoomDetailsPage({ params }: PageProps<"/rooms/[slug]">) {
   const { slug } = await params;
   const room = featuredRooms.find((item) => item.slug === slug);
 
@@ -22,18 +36,23 @@ export default async function RoomDetailsPage({
   }
 
   const [mainImage, ...supportingImages] = room.images.detail;
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Rooms", path: "/rooms" },
+    { name: room.name, path: `/rooms/${room.slug}` },
+  ]);
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(breadcrumbs)} />
       <section className="bg-secondary">
         <div className="container-page py-16 text-center md:py-24">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">APEX INN ROOMS</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">APEX INN · NEELUM VALLEY</p>
           <h1 className="mx-auto mt-5 max-w-4xl">{room.name}</h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted">{room.description}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-medium text-foreground">
             <span>{room.guests}</span>
             <span>{room.bed}</span>
-            <span className="text-primary">{room.price}</span>
           </div>
         </div>
       </section>
@@ -82,10 +101,6 @@ export default async function RoomDetailsPage({
                 <dt className="text-sm text-muted">Beds</dt>
                 <dd className="text-sm font-medium text-foreground">{room.bed}</dd>
               </div>
-              <div className="flex items-center justify-between gap-6 py-4">
-                <dt className="text-sm text-muted">Price</dt>
-                <dd className="text-right text-sm font-medium text-primary">{room.price}</dd>
-              </div>
               <div className="flex items-start justify-between gap-6 py-4">
                 <dt className="text-sm text-muted">Details</dt>
                 <dd className="max-w-xs text-right text-sm leading-6 text-foreground">
@@ -107,6 +122,12 @@ export default async function RoomDetailsPage({
                 </li>
               ))}
             </ul>
+            <Link
+              className="mt-6 inline-flex min-h-11 items-center text-sm font-medium text-primary transition-colors hover:text-foreground"
+              href="/facilities"
+            >
+              See all guest house facilities <span aria-hidden="true" className="ml-2">→</span>
+            </Link>
           </section>
         </div>
       </section>
@@ -125,7 +146,7 @@ export default async function RoomDetailsPage({
               className="button-secondary"
               href="/rooms"
             >
-              Back to Rooms
+              Compare All Rooms
             </Link>
           </div>
         </div>

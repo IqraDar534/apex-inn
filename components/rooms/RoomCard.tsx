@@ -15,7 +15,7 @@ export default function RoomCard({ room, image, eager = false }: RoomCardProps) 
 
   return (
     <article className="overflow-hidden border border-border bg-card">
-      <Link className="group block" href={roomPath}>
+      <Link aria-hidden="true" className="group block" href={roomPath} tabIndex={-1}>
         <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
           <Image
             alt={image.alt}
@@ -43,20 +43,18 @@ export default function RoomCard({ room, image, eager = false }: RoomCardProps) 
           </div>
         </dl>
 
-        <p className="mt-5 text-sm font-semibold text-primary">{room.price}</p>
-
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
             className="button-secondary flex-1"
             href={roomPath}
           >
-            View Details
+            View Details<span className="sr-only"> of the {room.name}</span>
           </Link>
           <Link
             className="button-primary flex-1"
             href="/contact"
           >
-            Book Now
+            Book Now<span className="sr-only">: {room.name}</span>
           </Link>
         </div>
       </div>

@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
+import { pageMetadata } from "../../lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Read the Apex Inn website privacy policy and current information-handling details.",
-};
+export const metadata = pageMetadata({
+  title: "Privacy Policy | Apex Inn",
+  description: "Read the Apex Inn website privacy policy and how information is handled when you contact us or send a booking request.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

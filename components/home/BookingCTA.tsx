@@ -11,7 +11,8 @@ export default function BookingCTA() {
           Ready for a Comfortable Stay?
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted">
-          Book your stay at Apex Inn and enjoy a comfortable, welcoming experience away from home.
+          Book your stay at Apex Inn and enjoy a comfortable, welcoming guest house experience in
+          Neelum Valley.
         </p>
 
         <div className="mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">

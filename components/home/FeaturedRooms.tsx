@@ -11,10 +11,11 @@ export default function FeaturedRooms() {
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">OUR ROOMS</p>
         <h2 id="featured-rooms-heading" className="mt-5">
-          Comfortable Rooms for Every Stay
+          Rooms for Couples, Families and Solo Travelers
         </h2>
         <p className="mt-6 text-base leading-8 text-muted">
-          Choose a space designed around comfort, convenience and a relaxing stay.
+          Choose from Deluxe, Executive and Family rooms, each prepared for a restful stay in
+          Neelum Valley.
         </p>
       </div>
 
@@ -29,7 +30,7 @@ export default function FeaturedRooms() {
           className="button-secondary"
           href="/rooms"
         >
-          View All Rooms
+          View All Rooms in Neelum Valley
         </Link>
       </div>
     </section>

@@ -84,7 +84,7 @@ export const siteImages = {
     "executive-room": {
       featured: photo(
         "rooms/modern-king/modern-king-01",
-        "Executive Room with a wooden king bed, grey feature wall and wood floor",
+        "Executive Room at Apex Inn with a wooden king bed, grey feature wall and wood floor",
       ),
       card: photo(
         "rooms/modern-king/modern-king-02",
@@ -111,7 +111,7 @@ export const siteImages = {
     "deluxe-room": {
       featured: photo(
         "rooms/carved-king/carved-king-05",
-        "Deluxe Room with a hand-carved wooden king bed under warm lighting",
+        "Deluxe Room at Apex Inn with a hand-carved wooden king bed under warm lighting",
       ),
       card: photo(
         "rooms/carved-king/carved-king-01",
@@ -138,7 +138,7 @@ export const siteImages = {
     "family-room": {
       featured: photo(
         "rooms/family/family-room-01",
-        "Spacious Family Room with several beds and dark curtains",
+        "Spacious Family Room at Apex Inn with several beds and dark curtains",
       ),
       card: photo(
         "rooms/family/family-room-03",

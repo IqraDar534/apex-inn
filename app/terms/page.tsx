@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { call, whatsapp, whatsappLinkProps } from "../../lib/contact";
+import { pageMetadata } from "../../lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions",
-  description: "Read the general website and booking-request terms for Apex Inn.",
-};
+export const metadata = pageMetadata({
+  title: "Terms & Conditions | Apex Inn",
+  description: "Read the general website use and booking-request terms for Apex Inn guest house in Neelum Valley.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (
@@ -68,9 +69,9 @@ export default function TermsPage() {
               Website Content
             </h2>
             <p className="mt-5 text-base leading-8 text-muted">
-              Website content, descriptions, images, prices, and availability information may be
-              updated or changed as the website develops. The current website is not connected to
-              a live booking system for prices or availability.
+              Website content, descriptions, images, and availability information may be updated
+              or changed as the website develops. The current website is not connected to a live
+              booking system for availability.
             </p>
           </section>
 

@@ -13,7 +13,7 @@ const reasons = [
   },
   {
     title: "Convenient Location",
-    description: "A convenient base for exploring the area or managing your visit.",
+    description: "A convenient base for exploring Neelum Valley or managing your visit.",
   },
   {
     title: "Clean & Relaxing Environment",
@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
           className="button-secondary mt-9"
           href="/about"
         >
-          Learn More About Us
+          Learn More About Apex Inn
         </Link>
       </div>
     </section>

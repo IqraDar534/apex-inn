@@ -29,7 +29,8 @@ export default function Footer() {
               Apex Inn
             </Link>
             <p className="mt-5 text-sm leading-7 text-muted">
-              Comfortable accommodation, warm hospitality, and a relaxing stay for every guest.
+              A comfortable guest house in Neelum Valley, Azad Kashmir, with warm hospitality and a
+              relaxing stay for every guest.
             </p>
           </div>
 

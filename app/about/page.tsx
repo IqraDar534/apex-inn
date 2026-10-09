@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import Image from "next/image";
+import { pageMetadata } from "../../lib/seo";
 import { siteImages } from "../../lib/siteImages";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "About Apex Inn",
+export const metadata = pageMetadata({
+  title: "About Apex Inn Neelum Valley | Comfort & Hospitality",
   description:
-    "Learn about Apex Inn and its focus on comfortable accommodation, cleanliness, and warm hospitality.",
-};
+    "Get to know Apex Inn Neelum Valley, a welcoming guest house in Azad Kashmir built around comfort, cleanliness and warm, attentive hospitality.",
+  path: "/about",
+  image: siteImages.aboutPage,
+});
 
 const values = [
   {
@@ -37,12 +39,12 @@ export default function AboutPage() {
       <section className="bg-secondary">
         <div className="container-page py-16 text-center md:py-24">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            ABOUT APEX INN
+            ABOUT US
           </p>
-          <h1 className="mx-auto mt-5 max-w-4xl">A Comfortable Stay, Away From Home</h1>
+          <h1 className="mx-auto mt-5 max-w-4xl">About Apex Inn Neelum Valley</h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted">
-            Apex Inn is a welcoming place to rest, with comfort, cleanliness and warm hospitality
-            at the heart of every stay.
+            Apex Inn is a welcoming guest house in Neelum Valley, Azad Kashmir, with comfort,
+            cleanliness and warm hospitality at the heart of every stay.
           </p>
         </div>
       </section>
@@ -70,12 +72,20 @@ export default function AboutPage() {
               guest-house experience focuses on the details that help you settle in and rest well.
             </p>
             <p>
-              Whether your visit is for work, exploration or a quiet break, you can expect a warm,
-              welcoming atmosphere and spaces prepared with care.
+              Whether your visit to Neelum Valley is for work, exploration or a quiet break, you can
+              expect a warm, welcoming atmosphere and spaces prepared with care.
             </p>
             <p>
               We keep the experience simple: a clean place to stay, thoughtful service and room to
-              enjoy your time away from home.
+              enjoy your time away from home. See our{" "}
+              <Link className="text-primary underline decoration-border underline-offset-4 hover:text-foreground" href="/facilities">
+                guest house facilities
+              </Link>{" "}
+              or{" "}
+              <Link className="text-primary underline decoration-border underline-offset-4 hover:text-foreground" href="/gallery">
+                browse photos of Apex Inn
+              </Link>{" "}
+              before you arrive.
             </p>
           </div>
         </div>
@@ -123,7 +133,7 @@ export default function AboutPage() {
         <div className="container-page py-16 text-center md:py-20">
           <h2>Make Your Stay Comfortable</h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-muted">
-            Explore our rooms and find the right option for your next stay.
+            Explore our rooms, then contact Apex Inn to check availability for your dates.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
@@ -136,7 +146,7 @@ export default function AboutPage() {
               className="button-primary"
               href="/contact"
             >
-              Book Your Stay
+              Contact Apex Inn
             </Link>
           </div>
         </div>

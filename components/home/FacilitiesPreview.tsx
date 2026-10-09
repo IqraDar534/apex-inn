@@ -70,7 +70,7 @@ export default function FacilitiesPreview() {
             className="button-secondary"
             href="/facilities"
           >
-            Explore All Facilities <span aria-hidden="true" className="ml-2">→</span>
+            Explore All Guest House Facilities <span aria-hidden="true" className="ml-2">→</span>
           </Link>
         </div>
       </div>

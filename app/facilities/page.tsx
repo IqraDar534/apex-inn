@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import Image from "next/image";
+import { pageMetadata } from "../../lib/seo";
 import { siteImages } from "../../lib/siteImages";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Facilities",
+export const metadata = pageMetadata({
+  title: "Guest House Facilities in Neelum Valley | Apex Inn",
   description:
-    "See the practical facilities designed to make your stay at Apex Inn comfortable and convenient.",
-};
+    "Free Wi-Fi, free parking, air conditioning, room service, housekeeping and 24/7 reception: the guest facilities available at Apex Inn in Neelum Valley.",
+  path: "/facilities",
+  image: siteImages.facilitiesPage,
+});
 
 const facilities = [
   {
@@ -50,17 +52,17 @@ export default function FacilitiesPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
             OUR FACILITIES
           </p>
-          <h1 className="mx-auto mt-5 max-w-4xl">Everything You Need for a Comfortable Stay</h1>
+          <h1 className="mx-auto mt-5 max-w-4xl">Guest House Facilities in Neelum Valley</h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted">
-            Apex Inn provides practical facilities designed to make your stay comfortable,
-            convenient and easy to enjoy.
+            Apex Inn provides practical facilities designed to make your stay in Neelum Valley
+            comfortable, convenient and easy to enjoy.
           </p>
         </div>
       </section>
 
       <section aria-labelledby="facilities-list-heading" className="container-page py-20 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 id="facilities-list-heading">Thoughtful Essentials for Your Stay</h2>
+          <h2 id="facilities-list-heading">Thoughtful Essentials at Apex Inn</h2>
         </div>
         <ul className="mt-12 grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
           {facilities.map((facility) => (
@@ -104,11 +106,11 @@ export default function FacilitiesPage() {
               Each facility is intended to make your time at Apex Inn more convenient and
               comfortable, giving you practical support while you settle in and relax.
             </p>
-              <Link
-                className="button-secondary mt-8"
+            <Link
+              className="button-secondary mt-8"
               href="/rooms"
             >
-              Explore Rooms
+              Explore Our Rooms
             </Link>
           </div>
         </div>
@@ -118,7 +120,7 @@ export default function FacilitiesPage() {
         <div className="container-page py-16 text-center md:py-20">
           <h2>Ready for a Comfortable Stay?</h2>
           <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-muted">
-            Explore our rooms and book your stay at Apex Inn.
+            Browse our rooms in Neelum Valley and contact Apex Inn to book your stay.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
